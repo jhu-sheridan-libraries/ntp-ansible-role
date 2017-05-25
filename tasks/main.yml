@@ -10,12 +10,12 @@
   become: true
   service:
     name: ntpd
-    status: stopped
+    state: stopped
     enabled: no
     
 - name: Ensure ntpdate is running and enabled
   become: true
   service: 
     name: ntpdate
-    status: started
+    state: started
     enabled: yes
