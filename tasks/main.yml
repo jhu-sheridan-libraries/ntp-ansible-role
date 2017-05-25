@@ -12,10 +12,20 @@
     name: ntpd
     state: stopped
     enabled: no
-    
+
 - name: Ensure ntpdate is running and enabled
   become: true
   service: 
     name: ntpdate
     state: started
     enabled: yes
+
+- name: Ensure ntp.conf is set up
+  become: true
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf.
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart_ntpdate
