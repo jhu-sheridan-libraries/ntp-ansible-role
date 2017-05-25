@@ -1,6 +1,7 @@
 ---
 # handlers file for ntp-ansible-role
 - name: restart_ntpdate
+  become: true
   service:
     name: ntpdate
     state: restarted
