@@ -34,6 +34,8 @@ script:
 
 
 notifications:
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/
-  on_success: always
-  on_failure: never
+  webhooks: 
+    urls:
+      - https://galaxy.ansible.com/api/v1/notifications/
+    on_success: always
+    on_failure: never
