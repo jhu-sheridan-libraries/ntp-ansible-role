@@ -1,0 +1,21 @@
+---
+# tasks file for ntp-ansible-role
+- name: Ensure NTP is installed
+  become: true
+  package:
+    name: ntp
+    state: installed
+
+- name: Ensure ntpd is disabled and stoppped
+  become: true
+  service:
+    name: ntpd
+    status: stopped
+    enabled: no
+    
+- name: Ensure ntpdate is running and enabled
+  become: true
+  service: 
+    name: ntpdate
+    status: started
+    enabled: yes
