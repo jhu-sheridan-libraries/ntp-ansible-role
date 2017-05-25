@@ -39,3 +39,6 @@ notifications:
       - https://galaxy.ansible.com/api/v1/notifications/
     on_success: always
     on_failure: never
+  email:
+    on_failure: never
+    on_success: never
