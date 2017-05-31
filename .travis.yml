@@ -24,6 +24,7 @@ script:
   - >
     docker exec --tty "$(cat ${container_id})" env TERM=xterm cat /etc/ntp.conf
     
+    
   - idempotence=$(mktemp)
   - >
     docker exec "$(cat ${container_id})"

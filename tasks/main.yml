@@ -13,13 +13,6 @@
     state: stopped
     enabled: no
 
-- name: Ensure ntpdate is running and enabled
-  become: true
-  service: 
-    name: ntpdate
-    state: started
-    enabled: yes
-
 - name: Ensure ntp.conf is set up
   become: true
   template:
@@ -28,4 +21,11 @@
     owner: root
     group: root
     mode: 0644
-  notify: restart_ntpdate
+
+- name: Ensure ntpdate is running and enabled
+  become: true
+  service: 
+    name: ntpdate
+    state: started
+    enabled: yes
+
