@@ -9,7 +9,7 @@
     - ntp
     - ntpdate
 
-- name: Ensure ntpd is disabled and stoppped
+- name: Ensure ntpd is disabled and stopped
   become: true
   service:
     name: ntpd
