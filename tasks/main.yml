@@ -10,6 +10,7 @@
     - ntpdate
 
 - name: Run ntpdate just to get an initial setting
+  become: true
   shell: "ntpdate -s {{ ntpservers[0] }}"
 
 - name: Ensure ntpd is disabled and stoppped
