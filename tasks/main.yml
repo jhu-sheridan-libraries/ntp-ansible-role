@@ -3,8 +3,11 @@
 - name: Ensure NTP is installed
   become: true
   package:
-    name: ntp
+    name: "{{ item }}"
     state: installed
+  with_items:
+    - ntp
+    - ntpdate
 
 - name: Run ntpdate just to get an initial setting
   shell: "ntpdate -s {{ ntpservers[0] }}"
