@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - { role: role_under_test, ntpservers: [ '192.168.1.1', '10.200.1.1']}
+    - { role: role_under_test, ntpservers: [ '154.16.245.246', '45.76.244.193']}
