@@ -6,12 +6,15 @@
     name: ntp
     state: installed
 
+- name: Run ntpdate just to get an initial setting
+  shell: "ntpdate -s {{ ntpservers[0] }}"
+
 - name: Ensure ntpd is disabled and stoppped
   become: true
   service:
     name: ntpd
-    state: stopped
-    enabled: no
+    state: started
+    enabled: yes
 
 - name: Ensure ntp.conf is set up
   become: true
@@ -21,11 +24,4 @@
     owner: root
     group: root
     mode: 0644
-
-- name: Ensure ntpdate is running and enabled
-  become: true
-  service: 
-    name: ntpdate
-    state: started
-    enabled: yes
-
+  notify: restart_ntpd
